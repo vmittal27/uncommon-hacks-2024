@@ -12,10 +12,14 @@ import googlemaps.distance_matrix
 import pymongo 
 import streamlit.components.v1 as components
 
+with open('keys.txt') as f :
+    google_key= f.readline()
+    mongo_user=f.readline()
+    mongo_pwd=f.readline()
 mongo_client = pymongo.MongoClient(
-    "mongodb+srv://vmittal:uncommon24@emissions-hackathon-pro.l9weice.mongodb.net/?retryWrites=true&w=majority&appName=emissions-hackathon-proj"
+    f"mongodb+srv://{mongo_user}:{mongo_pwd}@emissions-hackathon-pro.l9weice.mongodb.net/?retryWrites=true&w=majority&appName=emissions-hackathon-proj"
 )
-gmaps = googlemaps.Client(key='AIzaSyAc34E1HSuo2b_yKuAR7vqx1RRxBa7hnmM')
+gmaps = googlemaps.Client(key=google_key)
 
 # if 'location' not in st.session_state:
 #     ip = requests.get('https://api64.ipify.org?format=json').json()['ip']
@@ -77,7 +81,7 @@ if car_specified and route and result:
     origin_url = origin.replace(' ', '+')
     destination_url = destination.replace(' ', '+')
 
-    embed_url = f"https://www.google.com/maps/embed/v1/directions?key=AIzaSyAc34E1HSuo2b_yKuAR7vqx1RRxBa7hnmM&origin={origin_url}&destination={destination_url}&mode=driving"
+    embed_url = f"https://www.google.com/maps/embed/v1/directions?key={google_key}-aU&origin={origin_url}&destination={destination_url}&mode=driving"
 
     st.markdown(f'<iframe width="600" height="450" frameborder="0" style="border:0" src="{embed_url}" allowfullscreen></iframe>',
                 unsafe_allow_html=True)
