@@ -1,6 +1,6 @@
 # uncommon-hacks-2024
 
-# Walk For Groot
+# Grooot
 
 ## Description
 
