@@ -72,10 +72,14 @@ origin = st_searchbox(search_places, placeholder="Choose starting point...", key
 destination = st_searchbox(search_places, placeholder="Choose destination...", key="2")
 
 if origin and destination:
-    distance_matrix = googlemaps.distance_matrix.distance_matrix(client=gmaps, origins=origin, destinations=destination,
-                                                                 mode='driving', units='imperial')
-    distance_mi = distance_matrix['rows'][0]['elements'][0]['distance']['text']
-    route = True
+    try:
+        distance_matrix = googlemaps.distance_matrix.distance_matrix(client=gmaps, origins=origin, destinations=destination,
+                                                                    mode='driving', units='imperial')
+        distance_mi = distance_matrix['rows'][0]['elements'][0]['distance']['text']
+        route = True
+    except:
+        st.write("No Path Found")
+        st.stop()
 
 # Constants
 CO2_OFFSET_PER_TREE_PER_YEAR = 48 # in pounds
@@ -209,6 +213,12 @@ if car_specified and route and result:
         origin_url = origin.replace(' ', '+')
 
         embed_url = f"https://www.google.com/maps/embed/v1/directions?key={google_key}&origin={origin_url}&destination={newDest[0]},{newDest[1]}&mode=driving"
+
+        st.markdown(
+            f'<iframe width="700" height="500" frameborder="0" style="border:0" src="{embed_url}" allowfullscreen></iframe>',
+            unsafe_allow_html=True)
+        
+        embed_url = f"https://www.google.com/maps/embed/v1/directions?key={google_key}&origin={newDest[0]},{newDest[1]}&destination={destination_url}&mode=driving"
 
         st.markdown(
             f'<iframe width="700" height="500" frameborder="0" style="border:0" src="{embed_url}" allowfullscreen></iframe>',
