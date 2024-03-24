@@ -1,6 +1,6 @@
 # uncommon-hacks-2024
 
-# [NAME PLACEHOLDER]
+# Grooot
 
 ## Description
 
