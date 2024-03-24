@@ -15,6 +15,12 @@ import certifi
 ca = certifi.where()
 import FindNearestIntersection as FN
 
+st.set_page_config(
+    "Walk For Groot",
+    initial_sidebar_state="expanded", 
+    page_icon="https://funko.com/on/demandware.static/-/Sites-funko-master-catalog/default/dw0696aaaf/images/funko/5104-1.png"
+)
+
 st.title("Walk For Groot")
 with st.expander("## How to Use"):
     st.write(
