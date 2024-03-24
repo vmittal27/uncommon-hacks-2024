@@ -139,7 +139,7 @@ if car_specified and route and result:
                  255 * (1 - CO2 / initialCO2) / (1 - greenPercentage), 0)
 
     st.write("#### CO2")
-    CO2 = st.slider("", value=CO2, min_value=int(max(initialCO2 - 500, 0)), max_value=initialCO2, on_change=updateCO2, key="CO2")
+    CO2 = st.slider("", value=CO2, min_value=max(initialCO2 - 500, 0.0), max_value=initialCO2, on_change=updateCO2, key="CO2")
     st.write(CO2, '**Carbon emission in grams.**')
 
     st.write("#### Baby Groots")
