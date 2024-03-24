@@ -139,11 +139,11 @@ if car_specified and route and result:
                  255 * (1 - CO2 / initialCO2) / (1 - greenPercentage), 0)
 
     st.write("#### CO2")
-    CO2 = st.slider("", value=CO2, min_value= initialCO2 * 0.8, max_value=initialCO2, on_change=updateCO2, key="CO2")
+    CO2 = st.slider("", value=CO2, min_value=int(max(initialCO2 - 500, 0)), max_value=initialCO2, on_change=updateCO2, key="CO2")
     st.write(CO2, '**Carbon emission in grams.**')
 
     st.write("#### Baby Groots")
-    trees = st.slider('', value=int(trees), min_value=int(0.8*initialTrees), max_value=int(initialTrees), on_change=updateTrees, key="trees",
+    trees = st.slider('', value=int(trees), min_value=int(max(0, initialTrees - 3)), max_value=int(initialTrees), on_change=updateTrees, key="trees",
                       step=1)
     st.write(trees, '**Baby Groots required to offset. (1 Baby Groot = 1/100th of a tree, or Big Groot!)**')
 
