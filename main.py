@@ -218,7 +218,7 @@ if car_specified and route and result:
             f'<iframe width="700" height="500" frameborder="0" style="border:0" src="{embed_url}" allowfullscreen></iframe>',
             unsafe_allow_html=True)
         
-        embed_url = f"https://www.google.com/maps/embed/v1/directions?key={google_key}&origin={newDest[0]},{newDest[1]}&destination={destination_url}&mode=driving"
+        embed_url = f"https://www.google.com/maps/embed/v1/directions?key={google_key}&origin={newDest[0]},{newDest[1]}&destination={destination_url}&mode=walking"
 
         st.markdown(
             f'<iframe width="700" height="500" frameborder="0" style="border:0" src="{embed_url}" allowfullscreen></iframe>',
