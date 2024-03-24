@@ -28,8 +28,8 @@ with st.expander("## How to Use"):
     )
 
 mongo_client = pymongo.MongoClient(
-    f"mongodb+srv://emissions:hacks24@emissions-hackathon-pro.l9weice.mongodb.net/?retryWrites=true&w=majority&appName=emissions-hackathon-proj", tlsCAFile=ca)
-google_key="AIzaSyDsAC_T292i9NA2CQus5BDn9oVoVmF5-aU"
+    f"mongodb+srv://{st.secrets['username']}:{st.secrets['password']}@emissions-hackathon-pro.l9weice.mongodb.net/?retryWrites=true&w=majority&appName=emissions-hackathon-proj", tlsCAFile=ca)
+google_key=st.secrets['google']
 gmaps = googlemaps.Client(key=google_key)
 
 car_specified = False
